@@ -86,3 +86,35 @@ Power = Voltage * Current
 Current = Power / Voltage = 1m / 1.8 = 555.55 uA (ID)
 so according to the constraint given regarding power the current should be less than 555.55uA 
 so let us consider current (ID) = 400uA which is less than 555.55uA
+Since its an Amplifier to make sure that its present in Saturation Region.
+
+Here we observe Vt = 0.366V (given) , Also (Vgs - Vt )= Vov = (Vgs-0.366) < Vds
+as Vds= Vdd/2 = 1.8/2 = 0.9V and that implies Vgs < 0.9V + 0.366V
+Vgs < 1.266V.
+so according to above equation consider Vgs = 0.9V which is also half of Vdd
+Thus by fundamental concept , Vds >= Vov , here 0.9V > 0.534V . Its in SATURATION .
+as we are provided with the ' W ' value we have to find it now by formula 
+
+ID = (Un Cox W (Vgs-Vt)^2) / 2 Ln
+
+as we also not provided with the value of Cox 
+finding it by formula 
+
+Cox = (epslon0 * epslon r ) / tox
+we know tox and epslon0 and epslon r by substituting we get 
+Cox = 8.638 m F/m^2
+Un value is provided as 273.8094*10^-4 m^2
+Ln is provided as 560 n m 
+by substituting all the given and obtained value we get
+
+W = 6.6755 U m 
+
+# DC ANALYSIS 
+
+for W = 6.675Um we got Id as 297 UA and Vout as 0.899V 
+as we know varying W we can obtain our desired Vout
+so we varied W from 6.675 Um to 9.087 Um we obtained our desired Vout  that is 0.90005V
+
+DC ANALYSIS SIMULATOR IMAGE
+
+![Image description](PASTE_FILENAME_HERE)
