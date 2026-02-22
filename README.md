@@ -191,10 +191,22 @@ UGB = MIDBAND GAIN * f (3dB)
 
 23.29 MHz is nearly equal to 24.37 MHz ...
 
-RESULTS  :      * DC ANALYSIS             * TRANSIENT ANALYSIS                     * AC ANALYSIS
-                  Vout = 0.90005V           simulator    Av(dB) = 10.438 dB          BW = 1.2966 GHz
-                  W = 9.087 UA              theriotical  Av(dB) = 10.550 dB          UGB = 23.29 MHz
-                                                                                     Midband gain * f (3dB) = 24.37 MHz
+RESULTS  :      
+
+
+* DC ANALYSIS            
+ Vout = 0.90005V           
+ W = 9.087 UA
+
+* TRANSIENT ANALYSIS                    
+  simulator    Av(dB) = 10.438 dB         
+  theriotical  Av(dB) = 10.550 dB
+  
+* AC ANALYSIS
+  BW = 1.2966 GHz
+  UGB = 23.29 MHz
+  Midband gain * f (3dB) = 24.37 MHz
+                                                                  
 
 INFERENCE :
 
