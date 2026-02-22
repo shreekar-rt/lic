@@ -202,10 +202,10 @@ RESULTS  :
   simulator    Av(dB) = 10.438 dB         
   theriotical  Av(dB) = 10.550 dB
   
-* AC ANALYSIS
-  BW = 1.2966 GHz
-  UGB = 23.29 MHz
-  Midband gain * f (3dB) = 24.37 MHz
+* AC ANALYSIS                                                            
+  BW = 1.2966 GHz                                                                      
+  UGB = 23.29 MHz                                                       
+  Midband gain * f (3dB) = 24.37 MHz                                       
                                                                   
 
 INFERENCE :
