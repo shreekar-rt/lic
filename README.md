@@ -71,7 +71,8 @@ Its observed that capacitive impedances come into play for lower frequencies and
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Q1.Design CS amplifier using n mosfet in the tsmc 180nm tech.lib in lt spice use VDD=1.8V , P<=1mW , C(load)=10pF , Ln=560nm 
+# AIM  
+To Design CS amplifier using n mosfet in the tsmc 180nm tech.lib in lt spice use VDD=1.8V , P<=1mW , C(load)=10pF , Ln=560nm 
 
 CIRCUIT DIAGRAM: 
 
