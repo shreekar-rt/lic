@@ -83,9 +83,11 @@ CALCULATION :
 
 Power = Voltage * Current
 
-Current = Power / Voltage = 1m / 1.8 = 555.55 uA (ID)
+Current = Power / Voltage = 1m / 1.8 = 555.55 uA = (ID)
+
 so according to the constraint given regarding power the current should be less than 555.55uA 
 so let us consider current (ID) = 400uA which is less than 555.55uA
+
 Since its an Amplifier to make sure that its present in Saturation Region.
 
 Here we observe Vt = 0.366V (given) , Also (Vgs - Vt )= Vov = (Vgs-0.366) < Vds
@@ -109,7 +111,12 @@ by substituting all the given and obtained value we get
 
 W = 6.6755 U m 
 
-# DC ANALYSIS 
+DRAIN RESISTANCE CALCULATION (RD) :
+RD = Vdd-Vds / ID = (1.8 - 0.9) / 400 UA 
+RD = 2.250k ohm
+
+
+# DC ANALYSIS OPERATING POINT
 
 for W = 6.675Um we got Id as 297 UA and Vout as 0.899V 
 as we know varying W we can obtain our desired Vout
@@ -117,4 +124,84 @@ so we varied W from 6.675 Um to 9.087 Um we obtained our desired Vout  that is 0
 
 DC ANALYSIS SIMULATOR IMAGE
 
-![Image description](PASTE_FILENAME_HERE)
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-02-22%20152111.png)
+
+The above data providing the DC biasing which is required as mentioned earlier to make sure the value of current
+matches with power budget and the device is working well in saturation for proper Amplification.
+
+# TRANSIENT ANALYSIS
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/WhatsApp%20Image%202026-02-20%20at%208.58.21%20PM.jpeg)
+
+for sine wave input we gave 
+dc offset = 0.9V
+frequency = 1k Hz
+amplitude = 10mV 
+" WE TOOK AMPLITUDE = 10mV WHICH IS EQUAL TO Vgs AS WE KNOW THAT 
+
+" Vgs << 2 Vov "
+OUR CALCULATED Vov = 534mV
+2Vov = 1068mV
+10m << 1068mV "
+
+FROM THE GRAPH IN SIMULATION: 
+
+Vin(p-p) = 909.633mV - 890.394 mV 
+Vin(p-p) = 19.239mV
+
+Vout(p-p) = 931.894mV - 867.896mV
+Vout(p-p) = 63.997mV
+
+OVERALL GAIN   Av  (SIMULATION )
+Av = Vout(p-p) / Vin(p-p)
+Av = 63.997m / 19.239 m
+Av = 3.326
+
+Av(dB) = 20log(Av)
+Av(dB) = 10.438 dB
+
+OVERALL GAIN Av (THEORITICAL)
+Av = gm * RD
+where gm = 1/Kn*(Vgs-Vt) = (2ID) / (Vgs-Vt)
+gm = 1.4981m mho 
+Av = 3.370
+Av(dB) = 20log (Av) = 10.55 dB
+gain of simulation and theriotical both are nearly equal 
+10.438dB NEARLY EQUAL TO 10.55 dB 
+
+# AC ANALYSIS 
+
+simulator output 
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/WhatsApp%20Image%202026-02-20%20at%208.58.20%20PM.jpeg)
+
+
+Bandwidth = fH-fL
+Bandwidth = 1.2966-0  GHz
+3db frequency 1.2966 GHz
+With Capacitor CL = 10 pF (given)
+BW = 7.328 MHz - 0 7.328 MHz
+3dB frequency = 7.328 mHz it is half power frequency 
+0dB frequency = 23.29 MHz
+
+(UGB) (unity gain bandwidth) 
+UGB = 23.29 MHz
+we know by the formula 
+UGB = MIDBAND GAIN * f (3dB)
+
+23.29 MHz is nearly equal to 24.37 MHz ...
+
+RESULTS  :      * DC ANALYSIS             * TRANSIENT ANALYSIS                     * AC ANALYSIS
+                  Vout = 0.90005V           simulator    Av(dB) = 10.438 dB          BW = 1.2966 GHz
+                  W = 9.087 UA              theriotical  Av(dB) = 10.550 dB          UGB = 23.29 MHz
+                                                                                     Midband gain * f (3dB) = 24.37 MHz
+
+INFERENCE :
+
+Here by fundamental principle , its observed to make the MOSFET work in Saturation region  in almost linear part to get maximum gain.
+Hence the operating window should be chosen correctly and the Q point should set in such a way for the Vds, 
+such that there will not be any distortion or clipped part of the output signal.
+
+Hence a CS Amplifier of ,  , Ln = 560nm , Vdd = 1.8V  is designed and verified for power budget of P <= 1mW , CL = 10pF . 
+
+We have also verified that P= V*I = 1.8 * 400 UA will provide the value of 0.72mW which is well within the budget of 1mW.
