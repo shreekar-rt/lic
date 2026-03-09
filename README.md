@@ -243,7 +243,7 @@ Overdrive Voltage Vov = 0.25 V
 
 CIRCUIT DIAGRAM ;
 
-![Image description](PASTE_FILENAME_HERE)
+![Image description](Screenshot 2026-03-09 231200.png)
 
 # calculation to find  required unknown parameters.
 
