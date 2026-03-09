@@ -228,4 +228,71 @@ We have also verified that P= V*I = 1.8 * 400 UA will provide the value of 0.72m
 # a) Amplifier with active load 
 
 
+Given Design Parameters
+
+
+Parameter	Value
+Technology	TSMC 180 nm
+Supply Voltage VDD	1.8 V
+Power Constraint	≤ 1 mW
+NMOS Channel Length	560 nm
+PMOS Channel Length	560 nm
+NMOS Threshold Voltage Vthn = 0.36 V
+PMOS Threshold Voltage Vthp = 0.39 
+Overdrive Voltage Vov = 0.25 V
+
+CIRCUIT DIAGRAM ;
+
+![Image description](PASTE_FILENAME_HERE)
+
+# calculation to find  required unknown parameters.
+
+SOLVE FOR ID 
+
+VDD*ID <= 1mW
+
+1.8 * ID
+
+ID<=555.55 UA
+SO BY THIS CONSTRAINT WE CONSIDER ID = 400 UA
+SOLVE FOR Vout
+
+Vout = (VDD/2) + ID*Rs
+
+Given that ID*Rs = 0.2 
+
+Vout = 1.1V
+
+SOLVE FOR Rs 
+
+ID*Rs = 0.2
+
+Rs = (0.2/400 UA ) = 500 ohm
+
+SOLVE FOR VB1
+
+VB1 = VGS1 + ID*Rs
+
+Vov = 0.25 V where Vth = 0.36 V 
+
+VB1 = (0.25 + 0.36 ) + 0.2
+
+VB1 = 0.616 + 0.2
+
+VB1 = 0.816 V
+
+NOW WE CHECK THE CONDITON FOR SATURATION 
+
+VDS >= Vov 
+
+VDS >= VGS - VtH
+
+0.9 >= 0.61 - 0.36
+
+0.9 >= 0.25
+
+VERIFIED THAT IT IS IN SATURATION REGION 
+
+
+NOW LETS FIND THE WIDTH OF NMOS 
 
