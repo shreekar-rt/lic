@@ -1,7 +1,7 @@
 # LIC Lab experiments Repository
 # USN : 4NI24EC140
 This repository contains weekly lab experiments.
-# Expt_1_CS_Amplifier_
+# EXPERIMENT-01_CS_Amplifier_
 This file contains the Experiment 1 CS Amplifier files.
 
 MOSFETs,is short term for Metal Oxide Semiconductor Field Effect Transistors, are extremely important in our everyday lives due to their unique features, beneficial characteristics, and wide range of applications. A MOSFET can function both as a switch and as an amplifier, which are its two main uses. Based on how they are connected in a circuit, MOSFETs are available in different configurations, such as:
@@ -72,8 +72,8 @@ It is observed that capacitive impedances significantly affect the circuit at lo
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# AIM  
-To Design CS amplifier using n mosfet in the tsmc 180nm tech.lib in lt spice use VDD=1.8V , P<=1mW , C(load)=10pF , Ln=560nm 
+ 
+# Q1) To Design CS amplifier using n mosfet in the tsmc 180nm tech.lib in lt spice use VDD=1.8V , P<=1mW , C(load)=10pF , Ln=560nm 
 
 CIRCUIT DIAGRAM: 
 
