@@ -227,4 +227,516 @@ We have also verified that P= V*I = 1.8 * 400 UA will provide the value of 0.72m
 # Q2) Design amplifier configuration using tsmc018 tech lib in LT spice 
 # a) Amplifier with active load 
 
+1. Given Design Parameters
+Parameter	Value
+Technology	TSMC 180 nm
+Supply Voltage 
+𝑉
+𝐷
+𝐷
+VDD	1.8 V
+Power Constraint	≤ 1 mW
+Drain Current 
+𝐼
+𝐷
+I
+D
+	​
+
+	400 µA
+NMOS Channel Length	560 nm
+PMOS Channel Length	560 nm
+NMOS Threshold Voltage 
+𝑉
+𝑡
+ℎ
+𝑛
+V
+thn
+	​
+
+	0.36 V
+PMOS Threshold Voltage (	V_{thp}
+Overdrive Voltage 
+𝑉
+𝑜
+𝑣
+V
+ov
+	​
+
+	0.25 V
+2. Power Constraint Calculation
+
+Power constraint:
+
+𝑃
+=
+𝑉
+𝐷
+𝐷
+×
+𝐼
+𝐷
+P=V
+DD
+	​
+
+×I
+D
+	​
+
+1.8
+×
+𝐼
+𝐷
+≤
+1
+×
+10
+−
+3
+1.8×I
+D
+	​
+
+≤1×10
+−3
+𝐼
+𝐷
+≤
+555.55
+ 
+𝜇
+𝐴
+I
+D
+	​
+
+≤555.55 μA
+
+Chosen design value:
+
+𝐼
+𝐷
+=
+400
+ 
+𝜇
+𝐴
+I
+D
+	​
+
+=400 μA
+3. Output Voltage Bias Point
+
+To allow maximum swing, output is placed near mid supply.
+
+𝑉
+𝑜
+𝑢
+𝑡
+=
+𝑉
+𝐷
+𝐷
+2
++
+𝐼
+𝐷
+𝑅
+𝑆
+V
+out
+	​
+
+=
+2
+V
+DD
+	​
+
+	​
+
++I
+D
+	​
+
+R
+S
+	​
+
+𝑉
+𝑜
+𝑢
+𝑡
+=
+1.8
+2
++
+0.2
+V
+out
+	​
+
+=
+2
+1.8
+	​
+
++0.2
+𝑉
+𝑜
+𝑢
+𝑡
+=
+0.9
++
+0.2
+V
+out
+	​
+
+=0.9+0.2
+𝑉
+𝑜
+𝑢
+𝑡
+=
+1.1
+𝑉
+V
+out
+	​
+
+=1.1V
+4. Source Degeneration Resistance
+𝐼
+𝐷
+𝑅
+𝑆
+=
+0.2
+I
+D
+	​
+
+R
+S
+	​
+
+=0.2
+𝑅
+𝑆
+=
+0.2
+400
+𝜇
+𝐴
+R
+S
+	​
+
+=
+400μA
+0.2
+	​
+
+𝑅
+𝑆
+=
+500
+Ω
+R
+S
+	​
+
+=500Ω
+5. Gate Bias Voltage (NMOS)
+𝑉
+𝐺
+𝑆
+=
+𝑉
+𝑜
+𝑣
++
+𝑉
+𝑡
+ℎ
+V
+GS
+	​
+
+=V
+ov
+	​
+
++V
+th
+	​
+
+𝑉
+𝐺
+𝑆
+=
+0.25
++
+0.36
+V
+GS
+	​
+
+=0.25+0.36
+𝑉
+𝐺
+𝑆
+=
+0.61
+𝑉
+V
+GS
+	​
+
+=0.61V
+
+Source voltage:
+
+𝑉
+𝑆
+=
+𝐼
+𝐷
+𝑅
+𝑆
+=
+0.2
+𝑉
+V
+S
+	​
+
+=I
+D
+	​
+
+R
+S
+	​
+
+=0.2V
+
+Gate bias:
+
+𝑉
+𝐵
+=
+𝑉
+𝐺
+𝑆
++
+𝑉
+𝑆
+V
+B
+	​
+
+=V
+GS
+	​
+
++V
+S
+	​
+
+𝑉
+𝐵
+=
+0.61
++
+0.2
+V
+B
+	​
+
+=0.61+0.2
+𝑉
+𝐵
+=
+0.816
+𝑉
+V
+B
+	​
+
+=0.816V
+6. Saturation Condition Check
+
+MOSFET saturation condition:
+
+𝑉
+𝐷
+𝑆
+≥
+𝑉
+𝐺
+𝑆
+−
+𝑉
+𝑡
+ℎ
+V
+DS
+	​
+
+≥V
+GS
+	​
+
+−V
+th
+	​
+
+𝑉
+𝐷
+𝑆
+=
+0.9
+𝑉
+V
+DS
+	​
+
+=0.9V
+𝑉
+𝐺
+𝑆
+−
+𝑉
+𝑡
+ℎ
+=
+0.61
+−
+0.36
+V
+GS
+	​
+
+−V
+th
+	​
+
+=0.61−0.36
+=
+0.25
+𝑉
+=0.25V
+
+Since
+
+0.9
+>
+0.25
+0.9>0.25
+
+The transistor operates in saturation region.
+
+7. Transistor Width Calculation
+
+MOS current equation:
+
+𝐼
+𝐷
+=
+1
+2
+𝑘
+𝑛
+′
+𝑊
+𝐿
+𝑉
+𝑜
+𝑣
+2
+I
+D
+	​
+
+=
+2
+1
+	​
+
+k
+n
+′
+	​
+
+L
+W
+	​
+
+V
+ov
+2
+	​
+
+
+Where
+
+𝑘
+𝑛
+′
+=
+𝜇
+𝑛
+𝐶
+𝑜
+𝑥
+k
+n
+′
+	​
+
+=μ
+n
+	​
+
+C
+ox
+	​
+
+NMOS Width
+
+Calculated value:
+
+𝑊
+𝑛
+=
+30.3
+𝜇
+𝑚
+W
+n
+	​
+
+=30.3μm
+PMOS Width
+
+Calculated value:
+
+𝑊
+𝑝
+=
+73.56
+𝜇
+𝑚
+W
+p
+	​
+
+=73.56μm
 
