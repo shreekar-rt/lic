@@ -219,3 +219,12 @@ such that there will not be any distortion or clipped part of the output signal.
 Hence a CS Amplifier of ,  , Ln = 560nm , Vdd = 1.8V  is designed and verified for power budget of P <= 1mW , CL = 10pF . 
 
 We have also verified that P= V*I = 1.8 * 400 UA will provide the value of 0.72mW which is well within the budget of 1mW.
+
+
+
+# EXPERIMENT - 02
+
+# Q2) Design amplifier configuration using tsmc018 tech lib in LT spice 
+# a) Amplifier with active load 
+
+
