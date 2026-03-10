@@ -225,8 +225,8 @@ We have also verified that P= V*I = 1.8 * 400 UA will provide the value of 0.72m
 # EXPERIMENT - 02
 
 # Q2) Design amplifier configuration using tsmc018 tech lib in LT spice 
-# a) Amplifier with active load 
-
+## a) Amplifier with active load 
+### calculation for nmos 
 
 Given Design Parameters
 
@@ -295,4 +295,82 @@ VERIFIED THAT IT IS IN SATURATION REGION
 
 
 NOW LETS FIND THE WIDTH OF NMOS 
+
+
+ID = (UnCox W (VGS - Vth)^2 ) / 2Ln
+Un = 273.8094E-4 m^2
+Cox = 8.638E-3 F/m^2
+Ln = 560 nm 
+ID = 400 UA
+Vthn = 0.36 V
+after substituting and solving we get 
+
+W = 30.3 Um
+
+### calculations for pmos
+
+
+
+VB2 = Vov = 0.25  Vth = 0.39 V
+
+Vov = VSG - |Vthp| 
+VSG = Vout + Vthp 
+VSG = 0.25 + 0.39 
+
+VSG = 0.64 V
+
+VSG = VS - VG
+
+0.64 = VDD - VG 
+
+VG = VDD - 0.64 
+
+VG = VB2 = 1.16 V
+
+### now lets solve for width of pmos
+
+ID = ( Un Cox W (VGS-Vth)^2 ) / 2 Ln
+
+Up = 115.689E-4 m^2
+
+Cox = 8.422E-3 F/m^2
+
+Lp = 560 nm
+
+ID = 400 UA
+
+Vthp = 0.39 V
+
+after substituting all values 
+
+we get W = 73.56 Um
+
+# DC ANALYSIS 
+
+![Image description](PASTE_FILENAME_HERE)
+
+while finding DC operating point we got 
+
+NMOS width as 30.3 Um and for desired operating point and desired ID value we changed it to 54 Um
+
+
+ and we got PMOS widgh as 73.56 Um  and for desired operating point and desired ID value we changed it to 165.255 Um 
+
+by these changes we achieved Vout nearly equal to  1.1
+and ID is nearly equal to 400 UA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
