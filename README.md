@@ -232,13 +232,21 @@ Given Design Parameters
 
 
 Parameter	Value
+
 Technology	TSMC 180 nm
+
 Supply Voltage VDD	1.8 V
+
 Power Constraint	≤ 1 mW
+
 NMOS Channel Length	560 nm
+
 PMOS Channel Length	560 nm
+
 NMOS Threshold Voltage Vthn = 0.36 V
-PMOS Threshold Voltage Vthp = 0.39 
+
+PMOS Threshold Voltage Vthp = 0.39
+
 Overdrive Voltage Vov = 0.25 V
 
 CIRCUIT DIAGRAM ;
@@ -254,7 +262,9 @@ VDD*ID <= 1mW
 1.8 * ID
 
 ID<=555.55 UA
+
 SO BY THIS CONSTRAINT WE CONSIDER ID = 400 UA
+
 SOLVE FOR Vout
 
 Vout = (VDD/2) + ID*Rs
@@ -298,11 +308,17 @@ NOW LETS FIND THE WIDTH OF NMOS
 
 
 ID = (UnCox W (VGS - Vth)^2 ) / 2Ln
+
 Un = 273.8094E-4 m^2
+
 Cox = 8.638E-3 F/m^2
+
 Ln = 560 nm 
+
 ID = 400 UA
+
 Vthn = 0.36 V
+
 after substituting and solving we get 
 
 W = 30.3 Um
@@ -313,8 +329,10 @@ W = 30.3 Um
 
 VB2 = Vov = 0.25  Vth = 0.39 V
 
-Vov = VSG - |Vthp| 
+Vov = VSG - |Vthp|
+
 VSG = Vout + Vthp 
+
 VSG = 0.25 + 0.39 
 
 VSG = 0.64 V
@@ -347,7 +365,7 @@ we get W = 73.56 Um
 
 # DC ANALYSIS 
 
-![Image description](PASTE_FILENAME_HERE)
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-02-22%20152111.png)
 
 while finding DC operating point we got 
 
@@ -358,6 +376,49 @@ NMOS width as 30.3 Um and for desired operating point and desired ID value we ch
 
 by these changes we achieved Vout nearly equal to  1.1
 and ID is nearly equal to 400 UA
+
+# TRANSIENT ANALYSIS
+
+ACCORDING TO SIMULATOR
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-10%20225833.png)
+
+Vout(p-p) ->>>>> 1.3752 - 0.840 
+
+Vout(p-p) = 0.5314 V
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-10%20225435.png)
+
+Vin(p-p) ->>>>> ( 825.926 - 806.194 ) mV
+
+Vin(p-p) = 19.768 mV = 0.0197 V
+
+## lets find the simulated gain 
+
+
+
+Av =  Vout(p-p) / Vin(p-p) 
+
+Av = 0.5314 m / 0.0197 m 
+
+Av = 26.8818 V/V
+
+## gain in dB 
+
+AvdB = 20log(26.8818)
+
+AvdB = 28.58
+
+# AC  ANALYSIS 
+
+
+
+
+
+
+
+
+
 
 
 
