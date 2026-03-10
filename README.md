@@ -411,6 +411,67 @@ AvdB = 28.58
 
 # AC  ANALYSIS 
 
+## WITHOUT LOAD 
+
+### simulator frequency response
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-02-26%20161249.png)
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-02-26%20161518.png)
+
+according to the simulated value we got 
+
+0 dB frequency as 1.713 gHz  ( without load )
+
+and 3dB frequency as 52.5290 MHz ( without load )
+
+simulated gain  AvdB  = 28.762 dB 
+
+UGB = midbandgain * freq(3dB)
+
+UGB = 26.88 * 52.52 M 
+
+UGB = 1.411 GHz 
+
+## VERIFIED  (WITHOUT LOAD )
+
+UGB IS NEARLY EQUAL TO 0 db frequency
+
+UGB = 1.411 GHz which is nearly equal to 0 dB = 1.713 GHz
+
+## WITH LOAD 
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-02-26%20161954.png)
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-02-26%20162227.png)
+
+according to the simulated value we got 
+
+0 dB frequency as 21.216 MHz  ( with load )
+
+and 3dB frequency as 772.338 KHz ( with load )
+
+simulated gain  AvdB  = 28.690 dB 
+
+UGB = midbandgain * freq(3dB)
+
+UGB = 26.881 * 772.338 KHz
+
+UGB = 20.7 MHz
+
+## VERIFIED  (WITH LOAD)
+
+UGB IS NEARLY EQUAL TO 0 db frequency
+
+UGB = 20.7 MHz which is nearly equal to 0 dB = 21.216 MHz
+
+## RESULT
+
+## INFERENCE
+
+
+
+
 
 
 
