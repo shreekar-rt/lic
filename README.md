@@ -490,11 +490,11 @@ UGB = 20.7 MHz which is nearly equal to 0 dB = 21.216 MHz
         
    UGB = 1.411GHz 
 
- WITH LOAD 
+   WITH LOAD 
 
-  0 dB = BW = 21.216 MHz
+   0 dB = BW = 21.216 MHz
 
-  UGB = 20.7 MHz
+   UGB = 20.7 MHz
  
  ## INFERENCE
 
