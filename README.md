@@ -470,35 +470,35 @@ UGB = 20.7 MHz which is nearly equal to 0 dB = 21.216 MHz
 
 * DC ANALYSIS
   
-ID = 400 UA
+   ID = 400 UA
 
- Vout = 1.110 V
+   Vout = 1.110 V
  
-(NMOS) W = 54.0 UA
+   (NMOS) W = 54.0 Um
 
-(PMOS) W = 165.255 Um
+   (PMOS) W = 165.255 Um
 
 * TRANSIENT ANALYSIS
                      
-  simulator    Av(dB) = 28.5818 dB
+   simulator    Av(dB) = 28.5818 dB
          
 * AC ANALYSIS
 
-  WITHOUT LOAD
+   WITHOUT LOAD
   
-  0 dB = BW = 1.713 GHz
+   0 dB = BW = 1.713 GHz
         
-  UGB = 1.411GHz 
+   UGB = 1.411GHz 
 
  WITH LOAD 
 
- 0 dB = BW = 21.216 MHz
+  0 dB = BW = 21.216 MHz
 
- UGB = 20.7 MHz
+  UGB = 20.7 MHz
  
  ## INFERENCE
 
-The common source amplifier with active load was successfully designed using the TSMC 180 nm technology library in LTspice while satisfying the power constraint of ≤1 mW. DC analysis confirmed the desired operating point with ID ≈ 400 UA and Vout ≈ 1.1V, ensuring the MOSFET operates in the saturation region. Transient analysis showed a voltage gain of approximately 26.88 V/V (≈28.58 dB) AC analysis verified the frequency response, where the unity gain bandwidth was close to the 0 dB frequency, confirming correct amplifier behavior. Thus, the designed amplifier achieves the expected gain and bandwidth characteristics under the given design constraints.
+The common source amplifier with active load was successfully designed using the TSMC 180nm technology library in LTspice while satisfying the power constraint of ≤1 mW. DC analysis confirmed the desired operating point with ID ≈ 400 UA and Vout ≈ 1.1V, ensuring the MOSFET operates in the saturation region. Transient analysis showed a voltage gain of approximately 26.88 V/V (≈28.58 dB) AC analysis verified the frequency response, where the unity gain bandwidth was close to the 0 dB frequency, confirming correct amplifier behavior. Thus, the designed amplifier achieves the expected gain and bandwidth characteristics under the given design constraints.
 
  
 
