@@ -225,7 +225,9 @@ We have also verified that P= V*I = 1.8 * 400 UA will provide the value of 0.72m
 # EXPERIMENT - 02
 
 # Q2) Design amplifier configuration using tsmc018 tech lib in LT spice 
-## a) Amplifier with active load 
+
+## a) AMPLIFIER WITH ACTIVE LOAD 
+
 ### calculation for nmos 
 
 Given Design Parameters
@@ -503,10 +505,232 @@ The common source amplifier with active load was successfully designed using the
  
 
 
+## b) AMPLIFIER WITH ACTIVE LOAD AND CURRENT SOURCE
 
 
+Given Design Parameters
 
 
+Parameter	Value
+
+Technology	TSMC 180 nm
+
+Supply Voltage VDD	1.8 V
+
+Power Constraint	≤ 1 mW
+
+NMOS Channel Length	560 nm
+
+PMOS Channel Length	560 nm
+
+NMOS Threshold Voltage Vthn = 0.36 V
+
+PMOS Threshold Voltage Vthp = 0.39
+
+CIRCUIT DIAGRAM ;
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-14%20232621.png)
+
+# calculation to find  required unknown parameters.
+
+SOLVE FOR ID 
+
+VDD*ID <= 1mW
+
+1.8 * ID
+
+ID<=555.55 UA
+
+SO BY THIS CONSTRAINT WE CONSIDER ID = 400 UA
+
+VDD = 1.8 V
+
+## DC analysis
+
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-14%20235440.png)
+
+P ≤ 1 mW
+
+ID ≤ (1 × 10^-3) / VDD = 555.5 µA
+
+Considering ID = 400 µA
+
+Let us write equations for overdrive voltage
+
+Vov1 = VGS1 − VTN
+
+Vov3 = VGS3 − VTN
+
+Vov2 = VSG2 − |VTP|
+
+Consider the overdrive voltage to be the same so as to maintain symmetry.
+
+Now satisfying the saturation condition to find optimum Vov, Vout and Vin.
+
+## For M3 MOSFET
+
+VDS3 ≥ Vov
+
+Vx ≥ Vov
+
+So,
+
+Vx(min) = Vov
+
+## From M1 MOSFET
+
+VDS1 ≥ Vov
+
+Vout − VDS3 ≥ Vov
+
+Vout ≥ Vov + Vx
+
+## From M2 MOSFET
+
+VSD2 ≥ Vov
+
+VDD − Vout ≥ Vov
+
+VDD − Vov ≥ Vout
+
+If Vov = Vx(min)
+
+Vout(min) = Vov + Vov = 2Vov (from M1)
+
+Vout(max) = VDD − Vov (from M2)
+
+## Output range
+
+2Vov ≤ Vout ≤ VDD − Vov
+
+So, optimum output voltage
+
+Vout = (VDD + Vov) / 2
+
+Vout = VDD/2 + Vov/2
+
+
+## Here swing range is
+
+Vswing = VDD − 3Vov
+
+For max swing → Vov to be very less
+
+So,
+
+VDD − 3Vov ≥ 0
+
+Vpp = Vovmax
+
+Vovmax = 1.8 / 3 = 0.6 V
+
+Minimum overdrive voltage is (Vov = 0)
+
+Then optimum overdrive voltage is
+
+Vov = 0.6 / 2 = 0.3 V
+
+## For NMOS
+
+VGSmin = 0.366 V
+
+VGSmax = 0.366 + 0.6 = 0.966 V
+
+VGS = 0.666 V
+
+## For PMOS
+
+VSGmin = 0.39 V
+
+VSGmax = 0.39 + 0.6 = 0.99 V
+
+VSG = 0.69 V
+
+So, for M1
+
+Vin = VGS + Vx = 0.3 + 0.666 = 0.966 V
+
+## For M3
+
+Vb2 = VGS = 0.666 V
+
+## For M2
+
+Vb1 = 1.8 − 0.69 = 1.11 V
+
+Voutmin = 2Vov = 0.6 V
+
+Voutmax = 1.8 − 0.3 = 1.5 V
+
+Output voltage swing = 0.9 Vpp
+
+Vout = (VDD / 2) + (Vov / 2)
+
+Vout = 0.9 + 0.15 = 1.05 V
+
+Transient analysis
+
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20000725.png)
+
+Output voltage
+Vout max = 1.080 V
+Vout min = 1.021 V
+
+Input voltage
+Vin max = 975.56 mV
+Vin min = 956.42 mV
+
+Av = Vout / Vin
+Av = (1.080 − 1.021) V / (975.56 − 956.42) mV
+
+= 59 / 19.14
+
+Av = 3.08 V/V
+
+Av(dB) = 9.77 dB
+
+AC analysis
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20001149.png)
+
+Midband gain Av(dB) = 9.73 dB
+Av = 3.07 V/V
+
+3 dB Bandwidth = 54.978 MHz
+
+Midband gain = 3.08 V/V
+
+Unity gain bandwidth = 162.467 MHz
+
+Verification
+
+UGB = 3 dB Bandwidth × Midband gain
+
+UGB ≈ 54.978 MHz × 3.08 V/V
+
+UGB ≈ 169.33 MHz
+
+## RESULT
+
+DC Analysis Result
+
+The DC operating point of the CS amplifier with active load was successfully established with
+Vov = 0.3 V and Vout ≈ 1.05 V.
+The output voltage range obtained was 0.6 V to 1.5 V, ensuring all MOSFETs operate in the saturation region.
+
+Transient Analysis Result
+
+The voltage gain obtained from transient analysis was Av ≈ 3.08 V/V (9.77 dB), confirming proper amplification of the input signal.
+
+AC Analysis Result
+
+From AC analysis, the amplifier achieved a midband gain of approximately 3.07 V/V (9.73 dB) with a 3 dB bandwidth of about 54.978 MHz and unity gain bandwidth of approximately 162.467 MHz.
+
+## INFERENCE
+
+From this experiment, the Common Source (CS) amplifier with active load and current source was successfully designed and analyzed using DC, transient, and AC analyses. The DC analysis ensured proper biasing of all MOSFETs in the saturation region with an optimum output operating point around 1.05 V and an output swing between 0.6 V and 1.5 V. Transient analysis confirmed that the circuit provides voltage amplification with a gain of approximately 3.08 V/V (≈9.77 dB). AC analysis showed that the amplifier achieves a midband gain of about 3.07 V/V with a 3 dB bandwidth of approximately 54.98 MHz and a unity gain bandwidth of about 162 MHz. Thus, the CS amplifier with active load provides proper biasing, stable operation, and effective signal amplification with a reasonable bandwidth.
 
 
 
