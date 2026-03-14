@@ -1,8 +1,12 @@
 # LIC Lab experiments Repository
+
 # USN : 4NI24EC140
+
 This repository contains weekly lab experiments.
-# EXPERIMENT-01_&-02_CS_Amplifier_
-This file contains the Experiment 1 CS Amplifier files.
+
+# CS_Amplifier_EXPERIMENT_01_&_02(a,b,c)
+
+## This file contains the Experiment 1 & 2 for CS Amplifier files.
 
 MOSFETs,is short term for Metal Oxide Semiconductor Field Effect Transistors, are extremely important in our everyday lives due to their unique features, beneficial characteristics, and wide range of applications. A MOSFET can function both as a switch and as an amplifier, which are its two main uses. Based on how they are connected in a circuit, MOSFETs are available in different configurations, such as:
 
