@@ -226,9 +226,20 @@ We have also verified that P= V*I = 1.8 * 400 UA will provide the value of 0.72m
 
 
 
+
+
+
+
+
+
+
 # EXPERIMENT - 02
 
 # Q2) Design amplifier configuration using tsmc018 tech lib in LT spice 
+
+
+
+
 
 ## a) AMPLIFIER WITH ACTIVE LOAD 
 
