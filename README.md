@@ -896,7 +896,9 @@ Vout = 1.05 V
 For NMOS = 430.2 µm
 For PMOS = 108.59 µm
 
+
 # Transient analysis
+
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20214833.png)
 
@@ -921,7 +923,9 @@ Av = 46.54 V/V
 Av(dB) = 20 log(46.54)
 Av(dB) = 33.56 dB
 
+
 # AC Analysis
+
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20215305.png)
 
