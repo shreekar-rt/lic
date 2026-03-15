@@ -792,7 +792,7 @@ VOV2 = VSG2 − |VTP|
 
 Considering VOV to be same for the sake of symmetry and satisfying the saturation condition to find optimum VOV, Vout and Vin.
 
-# DC Analysis 
+## DC Analysis 
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20214707.png)
 
@@ -897,7 +897,7 @@ For NMOS = 430.2 µm
 For PMOS = 108.59 µm
 
 
-# Transient analysis
+## Transient analysis
 
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20214833.png)
@@ -924,7 +924,7 @@ Av(dB) = 20 log(46.54)
 Av(dB) = 33.56 dB
 
 
-# AC Analysis
+## AC Analysis
 
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20215305.png)
