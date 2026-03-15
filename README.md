@@ -745,8 +745,219 @@ From AC analysis, the amplifier achieved a midband gain of approximately 3.07 V/
 
 From this experiment, the Common Source (CS) amplifier with active load and current source was successfully designed and analyzed using DC, transient, and AC analyses. The DC analysis ensured proper biasing of all MOSFETs in the saturation region with an optimum output operating point around 1.05 V and an output swing between 0.6 V and 1.5 V. Transient analysis confirmed that the circuit provides voltage amplification with a gain of approximately 3.08 V/V (≈9.77 dB). AC analysis showed that the amplifier achieves a midband gain of about 3.07 V/V with a 3 dB bandwidth of approximately 54.98 MHz and a unity gain bandwidth of about 162 MHz. Thus, the CS amplifier with active load provides proper biasing, stable operation, and effective signal amplification with a reasonable bandwidth.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# c) CS Amplifier with Active Load and Diode Connected MOSFET
+
+## Given Design Parameters
 
 
+Parameter	Value
+
+Technology	TSMC 180 nm
+
+Supply Voltage VDD	1.8 V
+
+Power Constraint	≤ 1 mW
+
+NMOS Channel Length	560 nm
+
+PMOS Channel Length	560 nm
+
+NMOS Threshold Voltage Vthn = 0.36 V
+
+PMOS Threshold Voltage Vthp = 0.39
+
+## CIRCUIT DIAGRAM ;
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20234829.png)
+
+## Calculations
+
+VDD = 1.8 V
+
+P ≤ 1 mW
+
+ID ≤ (1 × 10⁻³) / VDD
+ID ≤ (1 × 10⁻³) / 1.8
+ID = 555.55 µA
+
+Considering ID = 400 µA
+
+Let us write equations for overdrive voltage
+
+VOV1 = VGS1 − VTHN
+VOV3 = VGS3 − VTHN
+VOV2 = VSG2 − |VTP|
+
+Considering VOV to be same for the sake of symmetry and satisfying the saturation condition to find optimum VOV, Vout and Vin.
+## DC Analysis 
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20214707.png)
+
+
+## For M3 MOSFET
+
+VDS3 ≥ VOV
+VDS3(min) = VOV
+
+So,
+
+Vx(min) = VDS3(min) = VOV
+
+For M1 MOSFET
+
+VDS1 ≥ VOV
+Vout − VDS3 ≥ VOV
+Vout ≥ VOV + VDS3
+Vout ≥ VOV + Vx
+
+## For M2 MOSFET
+
+VSD2 ≥ VOV
+VDD − Vout ≥ VOV
+VDD − VOV ≥ Vout
+
+If Vx = VOV
+
+Vout(min) = VOV + VOV
+Vout(min) = 2VOV
+
+Vout(max) = VDD − VOV
+
+Output range
+
+2VOV ≤ Vout ≤ VDD − VOV
+
+Optimum output voltage
+
+Vout = (VDD + VOV) / 2
+
+Maximum swing range
+
+Vswing = VDD − 3VOV
+
+For maximum swing VOV should be less
+
+VDD − 3VOV ≥ 0
+
+VOV(max) = VDD / 3
+VOV(max) = 1.8 / 3 = 0.6 V
+
+Minimum VOV voltage is (VOV = 0)
+
+Optimal voltage
+
+VOV = 0.6 / 2
+VOV = 0.3 V
+
+## For NMOS
+
+VGS(min) = 0.366 V
+VGS(max) = 0.366 + 0.6 = 0.966 V
+VGS = 0.666 V
+
+## For PMOS
+
+VSG(min) = 0.39 V
+VSG(max) = 0.39 + 0.6 = 0.99 V
+VSG = 0.69 V
+
+So, for M1
+
+Vin = VGS + Vx
+Vin = 0.3 + 0.666
+Vin = 0.966 V
+
+## For M3
+
+VGS3 = VDS3 = Vx = 0.3 V
+
+## For M2
+
+VB1 = VDD − VSG
+VB1 = 1.8 − 0.69 = 1.11 V
+
+Vout(min) = 2VOV = 0.6 V
+
+Vout(max) = VDD − VOV = 1.5 V
+
+Vout(pp) = 0.9 Vpp
+
+At Vout = 1.05 V
+
+Vout = VDD / 2 + Vx / 2
+Vout = 0.9 + 0.15
+Vout = 1.05 V
+
+## Width
+
+For NMOS = 430.2 µm
+For PMOS = 108.59 µm
+
+## Transient Analysis
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20214833.png)
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20214957.png)
+
+## Output Voltage
+
+Vout(max) = 1522.29 mV
+Vout(min) = 592.70 mV
+
+## Input Voltage
+
+Vin(max) = 975.99 mV
+Vin(min) = 956.02 mV
+
+## Voltage Gain
+
+Av = Vout(pp) / Vin(pp)
+Av = 929.59 / 19.97
+Av = 46.54 V/V
+
+Av(dB) = 20 log(46.54)
+Av(dB) = 33.56 dB
+
+AC Analysis
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20215305.png)
+
+With capacitor = 10 pF
+
+Midband gain = 35.69 dB = 60.88 V/V
+
+3 dB frequency (Bandwidth) = 1.00 MHz
+
+Unity gain bandwidth = 61.17 MHz
+
+## Verification
+
+UGB = Midband gain × 3 dB frequency
+
+UGB = 60.88 × 1.00 MHz
+
+UGB ≈ 60.88 MHz
+
+# RESULT
+
+## DC Analysis
+
+The DC biasing of the CS amplifier with active load and diode connected MOSFET was successfully calculated. The optimum overdrive voltage was chosen as Vov = 0.3 V for proper saturation operation. The bias voltages obtained are Vin = 0.966 V, VB1 = 1.11 V, and Vx = 0.3 V. The output voltage range was found to be 0.6 V ≤ Vout ≤ 1.5 V, with the optimum output voltage Vout ≈ 1.05 V for maximum symmetrical swing. The transistor widths were designed as Wn = 430.2 µm for NMOS and Wp = 108.59 µm for PMOS.
+
+## Transient Analysis
+
+From transient simulation, the output voltage varied between 1522.29 mV and 592.70 mV, giving a peak-to-peak output voltage of 929.59 mV. The input voltage varied between 975.99 mV and 956.02 mV, resulting in Vin(pp) ≈ 19.97 mV. The voltage gain of the amplifier was calculated as Av = 46.54 V/V, which corresponds to 33.56 dB.
+
+## AC Analysis
+
+From AC analysis with a 10 pF capacitor, the midband gain of the amplifier was found to be 35.69 dB (≈ 60.88 V/V). The 3-dB bandwidth was 1.00 MHz, and the unity gain bandwidth (UGB) was approximately 61.17 MHz. The theoretical verification also satisfies UGB ≈ midband gain × bandwidth, which gives approximately 60.88 MHz, confirming the simulation results.
+
+
+## INFERENCE
+
+The CS amplifier with active load and diode-connected MOSFET was successfully designed and analyzed. From the DC analysis, proper biasing conditions were achieved to ensure that all MOSFETs operate in the saturation region, providing the required output swing. The transient analysis confirmed that the amplifier produces a stable amplified output signal with a voltage gain of about 46.54 V/V (33.56 dB). The AC analysis showed a midband gain of 35.69 dB, a bandwidth of 1 MHz, and a unity gain bandwidth of approximately 61 MHz. Hence, the simulation results verify the theoretical design, demonstrating that the CS amplifier with active load provides good voltage gain and frequency response suitable for amplification applications.
 
 
 
