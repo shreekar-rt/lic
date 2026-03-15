@@ -791,6 +791,7 @@ VOV3 = VGS3 − VTHN
 VOV2 = VSG2 − |VTP|
 
 Considering VOV to be same for the sake of symmetry and satisfying the saturation condition to find optimum VOV, Vout and Vin.
+
 # DC Analysis 
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20214707.png)
@@ -895,7 +896,7 @@ Vout = 1.05 V
 For NMOS = 430.2 µm
 For PMOS = 108.59 µm
 
-# Transient Analysis
+# Transient analysis
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20214833.png)
 
