@@ -558,7 +558,7 @@ SO BY THIS CONSTRAINT WE CONSIDER ID = 400 UA
 
 VDD = 1.8 V
 
-## DC analysis
+## DC ANALYSIS
 
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-14%20235440.png)
@@ -682,7 +682,7 @@ Vout = (VDD / 2) + (Vov / 2)
 
 Vout = 0.9 + 0.15 = 1.05 V
 
-Transient analysis
+## TRANSIENT ANALYSIS
 
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20000725.png)
@@ -704,7 +704,7 @@ Av = 3.08 V/V
 
 Av(dB) = 9.77 dB
 
-AC analysis
+## AC ANALYSIS
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-15%20001149.png)
 
