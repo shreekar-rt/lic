@@ -375,4 +375,4 @@ V_OV = 0.34 V
 Final Linear Range:
 -0.68 V ≤ V_id ≤ 0.68 V
 
-![Image description](https://github.com/shreekar-rt/lic/commit/ea802bca215aeac65e1a5f1a459c2f6e1e578c0c).
+![Image description](https://github.com/shreekar-rt/lic/commit/ea802bca215aeac65e1a5f1a459c2f6e1e578c0c)
