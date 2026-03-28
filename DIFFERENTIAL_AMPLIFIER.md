@@ -414,4 +414,149 @@ Observation:
 • One transistor turns OFF (enters cutoff region)  
 • The amplifier deviates from linear operation  
 
+## Comparison Table
+
+Parameter                | Case 1: Linear Region        | Case 2: Non-Linear Region
+--------------------------------------------------------------------------------
+Condition                | V_id < √2 V_OV               | V_id > √2 V_OV
+Input (V_id)             | 10 mV                        | 490 mV
+Output waveform          | Sinusoidal                   | Distorted / Clipped
+Gain                     | Constant                     | Reduced / Non-linear
+Transistor operation     | All in saturation            | One NMOS in cutoff
+Current distribution     | Shared between M1 & M2       | Current flows in one branch
+
+
+## Interpretation
+
+
+When the amplifier operates in the linear region, the applied differential input is small. 
+As a result, both NMOS transistors remain ON and operate in saturation. The tail current 
+gets divided between the two branches, and the PMOS load converts these current changes 
+into a corresponding voltage output. Hence, the output signal is proportional and free from distortion.
+
+In contrast, in the non-linear region, the differential input becomes large. This forces one 
+transistor to conduct most of the tail current, while the other transistor turns OFF (cutoff). 
+Due to this unequal current distribution, the output becomes distorted and the amplifier 
+loses its linear behavior.
+
+# AC ANALYSIS
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20200327.png)
+
+
+## Midband gain:
+
+From AC simulation:
+A_v = 18.486 dB
+
+The -3 dB gain is:
+A_v - 3 = 18.486 - 3
+
+A_v - 3 = 15.486 dB
+
+
+Cutoff Frequencies
+
+Lower cutoff frequency:
+f_L = 0
+
+Upper cutoff frequency:
+f_H = 2.249 GHz
+
+Simulated Gain
+
+Input signal parameters:
+* Type: Sine wave  
+* Frequency = 1 kHz  
+* Amplitude = 5 mV (applied differentially)  
+* DC Offset = 0 V  
+
+Measured peak-to-peak values:
+V_in(p-p) = 5 mV − (−5 mV) = 10 mV  
+V_out(p-p) = 42.503 mV − (−83.825 mV) = 126.328 mV  
+
+Voltage gain:
+A_v = V_out(p-p) / V_in(p-p)  
+
+A_v = (126.328 × 10^-3) / (10 × 10^-3)  
+
+A_v = 12.632 v/v 
+
+
+Bandwidth
+
+Bandwidth is defined as:
+BW = f_H - f_L
+
+BW = 2.249GHz - 0
+
+BW = 2.249GHz
+
+## Unity Gain Bandwidth (UGB)
+
+Since the 0 dB crossing point is not clearly observed in the plot, the UGB cannot be measured directly.
+
+However, it can be estimated using:
+UGB = A_v × BW
+
+A_v = 12.632
+
+UGB = 12.632 × 2.249 GHz
+
+UGB = 28.409 GHz
+
+
+
+## Result
+
+• Input Common Mode Range (ICMR):
+  -0.34 V ≤ V_ICM ≤ 0.36 V
+
+• Output Common Mode Range (OCMR):
+  -0.36 V ≤ V_OCM ≤ 0.9 V
+
+• Differential Input Linear Range:
+  -0.68 V ≤ V_id ≤ 0.68 V
+
+• Simulated Voltage Gain:
+  A_v ≈ 12.632 V/V
+
+• Gain in dB (AC Analysis):
+  A_v ≈ 18.486 dB
+
+• Bandwidth:
+  BW ≈ 2.249 GHz
+
+• Unity Gain Bandwidth (UGB):
+  UGB ≈ 28.409 GHz
+
+• Nature of Operation:
+  - Linear for small input signals  
+  - Non-linear (distorted) for large input signals
+
+
+## inference 
+
+The MOSFET differential amplifier was successfully designed and analyzed using DC, transient, and AC simulations. 
+From DC analysis, it was confirmed that both transistors operate in the saturation region under proper biasing conditions.
+
+The input and output common-mode ranges were obtained, ensuring correct operation limits of the circuit. 
+From transient analysis, it was observed that the amplifier behaves linearly for small differential inputs, 
+producing a clean sinusoidal output. However, for larger inputs, distortion and clipping occur due to one 
+transistor entering the cutoff region.
+
+AC analysis showed that the amplifier provides moderate gain with a very high bandwidth. 
+The simulated gain was found to be higher than the theoretical value due to the inclusion of non-ideal 
+effects in simulation.
+
+Thus, the experiment verifies that differential amplifiers provide linear amplification only within a 
+limited input range and exhibit non-linear behavior beyond that range.
+
+
+
+
+
+
+
+
 
