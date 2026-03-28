@@ -256,5 +256,5 @@ Therefore, the difference from the theoretical width is due to non-ideal charact
 
 # DC Analysis
 
-![Image description]()
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20163208.png)
 
