@@ -258,3 +258,121 @@ Therefore, the difference from the theoretical width is due to non-ideal charact
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20163208.png)
 
+## Input Common Mode Range (ICMR)
+
+The input common-mode range is defined as the range of input voltage for which all transistors remain in saturation.
+
+Minimum Input Common Mode Voltage
+
+For proper operation, the tail current source must remain active and the NMOS transistors must stay in saturation.
+
+Condition:
+V_GS ≥ V_T
+
+Using:
+V_GS = V_ICM - V_S
+
+So,
+V_ICM(min) = V_S + V_T
+
+Substituting values:
+V_S = -0.7 V
+V_T = 0.36 V
+
+V_ICM(min) = -0.7 + 0.36
+
+V_ICM(min) = -0.34 V
+
+## Maximum Input Common Mode Voltage
+
+For maximum input voltage, the NMOS transistors must remain in saturation.
+
+Condition:
+V_DS ≥ V_OV
+
+Using:
+V_D = 0 V
+V_S = -0.7 V
+
+V_DS = V_D - V_S = 0 - (-0.7) = 0.7 V
+
+Now,
+V_ICM(max) = V_D + V_T
+
+Substituting:
+V_ICM(max) = 0 + 0.36
+
+V_ICM(max) = 0.36 V
+
+Final Input Common Mode Range:
+-0.34 V ≤ V_ICM ≤ 0.36 V
+
+## Output Common Mode Range
+
+The output common-mode voltage range is determined by ensuring that the NMOS transistors remain in saturation and the circuit operates properly.
+
+Maximum Output Voltage
+
+The maximum output voltage occurs when the drain voltage is at its highest possible value, which is limited by the supply voltage:
+
+V_OCM(max) ≤ V_DD
+
+However, to maintain current flow through the load resistor:
+
+V_OCM(max) = V_DD
+
+V_OCM(max) = 0.9 V
+
+Minimum Output Voltage
+
+For proper operation, the NMOS transistors must remain in saturation:
+
+V_DS ≥ V_OV
+
+Using:
+V_DS = V_D - V_S
+
+At the edge of saturation:
+V_D - V_S = V_OV
+
+So,
+V_D = V_S + V_OV
+
+Since:
+V_D = V_OCM(min)
+
+V_OCM(min) = V_S + V_OV
+
+Substituting values:
+V_S = -0.7 V
+V_OV = 0.34 V
+
+V_OCM(min) = -0.7 + 0.34
+
+V_OCM(min) = -0.36 V
+
+Final Output Common Mode Range:
+-0.36 V ≤ V_OCM ≤ 0.9 V
+
+
+## Differential Input Voltage Range (Linear Region)
+
+The differential amplifier behaves linearly only when both transistors operate in saturation and the current is approximately equally shared between them.
+
+For a MOS differential pair, linear operation is maintained when the differential input voltage is small compared to the overdrive voltage.
+
+Condition for Linear Operation
+
+|V_id| ≤ 2V_OV
+
+Substituting Values:
+V_OV = 0.34 V
+
+|V_id| ≤ 2 × 0.34
+
+|V_id| ≤ 0.68 V
+
+Final Linear Range:
+-0.68 V ≤ V_id ≤ 0.68 V
+
+![Image description](https://github.com/shreekar-rt/lic/commit/ea802bca215aeac65e1a5f1a459c2f6e1e578c0c).
