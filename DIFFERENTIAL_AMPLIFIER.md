@@ -563,7 +563,19 @@ To design and simulate three MOSFET differential amplifier configurations using 
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20224605.png)
 
-EXPERIMENT: MOS Differential Amplifier with Active Load
+
+GIVEN PARAMETERS
+
+• Technology: TSMC 180 nm  
+• Supply voltage, V_DD = +0.9 V  
+• Negative supply, V_SS = −0.9 V  
+• Power constraint, P ≤ 2.2 mW  
+• Channel length, L_n = 540 nm  
+• Input common-mode voltage, V_in,CM = 0 V  
+• Output common-mode voltage, V_o,CM = 0 V  
+• Tail node voltage, V_p = −0.7 V  
+• Load capacitance, C_L = 10 pF  
+• Threshold voltage, V_T ≈ 0.36 V 
 
 # DC ANALYSIS
 
@@ -629,7 +641,7 @@ SATURATION CONDITION
 
 V_DS > V_OV
 
-Condition satisfied → transistors operate in saturation
+Condition satisfied --> transistors operate in saturation
 
 
 TRANSISTOR SIZING (USING Ln = 540 nm)
@@ -640,21 +652,24 @@ L = 540 nm = 540 × 10^-9 m
 Drain current equation:
 I_D = (1/2) μnCox (W/L) (V_OV)^2
 
-Rewriting:
+
 W = (2 I_D L) / (μnCox (V_OV)^2)
 
 Substituting:
-I_D = 0.5 × 10^-3 A
+I_D = 0.6 × 10^-3 A
 μnCox = 2.365 × 10^-4 A/V^2
 V_OV = 0.34 V
 
-W ≈ 20 μm (theoretical)
+W = 23.7 um 
 
-Final (after simulation tuning):
-W ≈ 70–80 μm
+Final (after tuning):
+
+W ≈ 30.625 um (CMOSN)
+
+W ≈ 38.21 um (CMOSP)
 
 
-INPUT COMMON MODE RANGE (ICMR)
+## INPUT COMMON MODE RANGE 
 
 Minimum:
 V_ICM(min) = V_S + V_T
@@ -664,7 +679,7 @@ Maximum:
 V_ICM(max) ≈ VDD − V_OV
 V_ICM(max) ≈ 1.8 − 0.34 = 1.46 V
 
-Final:
+
 0.56 V ≤ V_ICM ≤ 1.46 V
 
 
@@ -677,7 +692,7 @@ Minimum:
 V_OCM(min) = V_S + V_OV
 V_OCM(min) ≈ 0.2 + 0.34 = 0.54 V
 
-Final:
+
 0.54 V ≤ V_OCM ≤ 1.8 V
 
 
@@ -698,10 +713,12 @@ Condition for linearity:
 |V_id| < √2 V_OV = 0.48 V
 
 
-Case 1: Linear Region
+## situation 1; Linear Region
 
 Input:
 V_id = 50 mV < 0.48 V
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20233240.png)
 
 Observation:
 • Output waveform is sinusoidal
@@ -710,10 +727,14 @@ Observation:
 • Linear amplification observed
 
 
-Case 2: Non-linear Region
+## situation 2; Non-linear Region
 
 Input:
 V_id > 0.48 V
+
+600mV > 0.48 V
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20233718.png)
 
 Observation:
 • Output waveform is distorted
@@ -721,21 +742,29 @@ Observation:
 • One transistor enters cutoff
 • Linear amplification is lost
 
-# AC ANALYSIS (CL = 10 pF)
+# AC ANALYSIS 
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20224448.png)
 
-a) Gain:
-A_v ≈ 10–15 dB (from simulation)
+## a) Gain:
+A_v ≈ 5.53
+AvdB = 20log (5.53)
+AvdB = 14.854 dB
 
-b) Bandwidth:
+## b) Bandwidth:
 BW = f_H − f_L
+fl = 0 
+BW = 2.90 GHz - 0
 
-c) −3 dB Bandwidth:
+
+## c) −3 dB Bandwidth:
+
 Gain reduces by 3 dB from midband value
-
-d) Unity Gain Bandwidth:
-UGB = A_v × BW
+ 3 dB = 2.90 GHz
+ 
+## d) Unity Gain Bandwidth:
+UGB = 5.53 × 2.90 G
+UGB = 16.037 GHz
 
 
 ## COMPARISON (THEORY vs SIMULATION)
@@ -743,10 +772,9 @@ UGB = A_v × BW
 Theoretical gain:
 A_v ≈ g_m × R_out
 
-g_m = 2I_D / V_OV ≈ 2.94 mS
+g_m = 2I_D / V_OV ≈ 3.529 mS
 
-Simulated gain:
-Higher than theoretical value
+Simulated gain: Higher than theoretical value
 
 Reason:
 • Channel length modulation
@@ -768,7 +796,12 @@ due to non-ideal device characteristics.
 ## RESULTS
 
 • Tail current:
-  I_SS ≈ 1.22 mA (design), 1 mA (simulation)
+  I_SS ≈ 1.22 mA 
+
+• width :
+  W ≈ 30.625 um (CMOSN)
+
+  W ≈ 38.21 um (CMOSP)  
 
 • ICMR:
   0.56 V ≤ V_ICM ≤ 1.46 V
@@ -776,20 +809,16 @@ due to non-ideal device characteristics.
 • OCMR:
   0.54 V ≤ V_OCM ≤ 1.8 V
 
-• Differential input range:
-  ±0.68 V
-
 • Gain:
-  ≈ 10–15 dB
+  ≈ 14.854 dB
 
 • Bandwidth:
-  High (MHz–GHz range)
+  BW = 2.90 GHz 
 
 • UGB:
-  High
+  UGB = 16.037 GHz
 
-• Operation:
-  Linear for small input, non-linear for large input
+
 
 
 
