@@ -553,7 +553,243 @@ Thus, the experiment verifies that differential amplifiers provide linear amplif
 limited input range and exhibit non-linear behavior beyond that range.
 
 
+# DIFFERENTIAL AMPLIFIER CIRCUIT 2
 
+## Aim
+
+To design and simulate three MOSFET differential amplifier configurations using LTspice by performing DC, Transient, and AC analyses, and to compare their performance based on gain, bandwidth, and power efficiency.
+
+## CIRCUIT DIAGRAM
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20224605.png)
+
+EXPERIMENT: MOS Differential Amplifier with Active Load
+
+# DC ANALYSIS
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20224014.png)
+
+## Given:
+VDD = +0.9 V
+VSS = −0.9 V
+Total supply voltage = 1.8 V
+
+## Power constraint:
+P ≤ 2.2 mW
+
+
+## TAIL CURRENT CALCULATION
+
+P = (VDD − VSS) × I_SS
+
+1.8 × I_SS = 2.2 × 10^-3
+
+I_SS = 2.2 × 10^-3 / 1.8
+
+I_SS ≈ 1.222 mA
+
+For design:
+I_SS ≈ 1.222 mA 
+
+
+DRAIN CURRENT
+
+I_D1 = I_D2 = I_SS / 2
+
+I_D ≈ 0.6 mA
+
+
+BIAS CONDITIONS
+
+Input common-mode voltage:
+V_G = 0.9 V
+
+Given:
+Tail node voltage V_S ≈ 0.9 V − V_GS
+
+Assume:
+V_GS ≈ 0.7 V
+
+So,
+V_S ≈ 0.2 V
+
+
+OVERDRIVE VOLTAGE
+
+V_T ≈ 0.36 V
+
+V_OV = V_GS − V_T
+
+V_OV = 0.7 − 0.36
+
+V_OV = 0.34 V
+
+
+SATURATION CONDITION
+
+V_DS > V_OV
+
+Condition satisfied → transistors operate in saturation
+
+
+TRANSISTOR SIZING (USING Ln = 540 nm)
+
+Given:
+L = 540 nm = 540 × 10^-9 m
+
+Drain current equation:
+I_D = (1/2) μnCox (W/L) (V_OV)^2
+
+Rewriting:
+W = (2 I_D L) / (μnCox (V_OV)^2)
+
+Substituting:
+I_D = 0.5 × 10^-3 A
+μnCox = 2.365 × 10^-4 A/V^2
+V_OV = 0.34 V
+
+W ≈ 20 μm (theoretical)
+
+Final (after simulation tuning):
+W ≈ 70–80 μm
+
+
+INPUT COMMON MODE RANGE (ICMR)
+
+Minimum:
+V_ICM(min) = V_S + V_T
+V_ICM(min) ≈ 0.2 + 0.36 = 0.56 V
+
+Maximum:
+V_ICM(max) ≈ VDD − V_OV
+V_ICM(max) ≈ 1.8 − 0.34 = 1.46 V
+
+Final:
+0.56 V ≤ V_ICM ≤ 1.46 V
+
+
+OUTPUT COMMON MODE RANGE (OCMR)
+
+Maximum:
+V_OCM(max) = VDD = 1.8 V
+
+Minimum:
+V_OCM(min) = V_S + V_OV
+V_OCM(min) ≈ 0.2 + 0.34 = 0.54 V
+
+Final:
+0.54 V ≤ V_OCM ≤ 1.8 V
+
+
+DIFFERENTIAL INPUT RANGE
+
+|V_id| ≤ 2V_OV
+
+|V_id| ≤ 2 × 0.34
+
+|V_id| ≤ 0.68 V
+
+
+# TRANSIENT ANALYSIS
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20224117.png)
+
+Condition for linearity:
+|V_id| < √2 V_OV = 0.48 V
+
+
+Case 1: Linear Region
+
+Input:
+V_id = 50 mV < 0.48 V
+
+Observation:
+• Output waveform is sinusoidal
+• No distortion present
+• Both transistors remain in saturation
+• Linear amplification observed
+
+
+Case 2: Non-linear Region
+
+Input:
+V_id > 0.48 V
+
+Observation:
+• Output waveform is distorted
+• Clipping is observed
+• One transistor enters cutoff
+• Linear amplification is lost
+
+# AC ANALYSIS (CL = 10 pF)
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20224448.png)
+
+a) Gain:
+A_v ≈ 10–15 dB (from simulation)
+
+b) Bandwidth:
+BW = f_H − f_L
+
+c) −3 dB Bandwidth:
+Gain reduces by 3 dB from midband value
+
+d) Unity Gain Bandwidth:
+UGB = A_v × BW
+
+
+## COMPARISON (THEORY vs SIMULATION)
+
+Theoretical gain:
+A_v ≈ g_m × R_out
+
+g_m = 2I_D / V_OV ≈ 2.94 mS
+
+Simulated gain:
+Higher than theoretical value
+
+Reason:
+• Channel length modulation
+• Mobility degradation
+• Parasitic capacitances
+• Non-ideal MOSFET effects
+
+
+## INFERENCE
+
+The MOS differential amplifier is designed to satisfy the given power constraint and operates in the saturation region. 
+The channel length is used in determining transistor dimensions, ensuring proper biasing and current flow.
+
+The circuit exhibits linear behavior for small differential inputs and non-linear behavior for larger inputs. 
+AC analysis shows moderate gain and high bandwidth. Differences between theoretical and simulated results arise 
+due to non-ideal device characteristics.
+
+
+## RESULTS
+
+• Tail current:
+  I_SS ≈ 1.22 mA (design), 1 mA (simulation)
+
+• ICMR:
+  0.56 V ≤ V_ICM ≤ 1.46 V
+
+• OCMR:
+  0.54 V ≤ V_OCM ≤ 1.8 V
+
+• Differential input range:
+  ±0.68 V
+
+• Gain:
+  ≈ 10–15 dB
+
+• Bandwidth:
+  High (MHz–GHz range)
+
+• UGB:
+  High
+
+• Operation:
+  Linear for small input, non-linear for large input
 
 
 
