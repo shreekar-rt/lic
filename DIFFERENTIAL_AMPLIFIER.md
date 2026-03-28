@@ -1,3 +1,5 @@
+# USN  4NI24EC140
+
 # EXPERIMENT - 04 
 
 # DIFFERENTIAL AMPLIFIER CIRCUIT 1 
@@ -251,3 +253,8 @@ Final width obtained:
 W ≈ 73 μm
 
 Therefore, the difference from the theoretical width is due to non-ideal characteristics of the device and the requirement to achieve precise biasing conditions during simulation.
+
+# DC Analysis
+
+![Image description](https://github.com/shreekar-rt/lic/commit/a612eb57557ec15090b135920be74ae53a90a6b3)
+
