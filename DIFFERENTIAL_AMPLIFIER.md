@@ -375,4 +375,9 @@ V_OV = 0.34 V
 Final Linear Range:
 -0.68 V ≤ V_id ≤ 0.68 V
 
-![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20164653.png)
+# TRANSIENT ANALSIS
+
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20165531.png)
+
+
