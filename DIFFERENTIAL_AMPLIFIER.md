@@ -267,16 +267,21 @@ Minimum Input Common Mode Voltage
 For proper operation, the tail current source must remain active and the NMOS transistors must stay in saturation.
 
 Condition:
+
 V_GS ≥ V_T
 
 Using:
+
 V_GS = V_ICM - V_S
 
 So,
+
 V_ICM(min) = V_S + V_T
 
 Substituting values:
+
 V_S = -0.7 V
+
 V_T = 0.36 V
 
 V_ICM(min) = -0.7 + 0.36
@@ -288,23 +293,29 @@ V_ICM(min) = -0.34 V
 For maximum input voltage, the NMOS transistors must remain in saturation.
 
 Condition:
+
 V_DS ≥ V_OV
 
 Using:
+
 V_D = 0 V
+
 V_S = -0.7 V
 
 V_DS = V_D - V_S = 0 - (-0.7) = 0.7 V
 
 Now,
+
 V_ICM(max) = V_D + V_T
 
 Substituting:
+
 V_ICM(max) = 0 + 0.36
 
 V_ICM(max) = 0.36 V
 
 Final Input Common Mode Range:
+
 -0.34 V ≤ V_ICM ≤ 0.36 V
 
 ## Output Common Mode Range
@@ -330,21 +341,27 @@ For proper operation, the NMOS transistors must remain in saturation:
 V_DS ≥ V_OV
 
 Using:
+
 V_DS = V_D - V_S
 
 At the edge of saturation:
+
 V_D - V_S = V_OV
 
 So,
+
 V_D = V_S + V_OV
 
 Since:
+
 V_D = V_OCM(min)
 
 V_OCM(min) = V_S + V_OV
 
 Substituting values:
+
 V_S = -0.7 V
+
 V_OV = 0.34 V
 
 V_OCM(min) = -0.7 + 0.34
@@ -352,6 +369,7 @@ V_OCM(min) = -0.7 + 0.34
 V_OCM(min) = -0.36 V
 
 Final Output Common Mode Range:
+
 -0.36 V ≤ V_OCM ≤ 0.9 V
 
 
@@ -366,6 +384,7 @@ Condition for Linear Operation
 |V_id| ≤ 2V_OV
 
 Substituting Values:
+
 V_OV = 0.34 V
 
 |V_id| ≤ 2 × 0.34
@@ -373,6 +392,7 @@ V_OV = 0.34 V
 |V_id| ≤ 0.68 V
 
 Final Linear Range:
+
 -0.68 V ≤ V_id ≤ 0.68 V
 
 # TRANSIENT ANALSIS
@@ -387,6 +407,7 @@ Condition for Linearity
 ## situation 1 : Linear Region
 
 Input applied:
+
 V_id = 10 mV < 0.48 V
 
 
@@ -395,8 +416,11 @@ V_id = 10 mV < 0.48 V
 ## Observation:
 
 • The output signal appears sinusoidal in nature  
+
 • No noticeable distortion is present  
-• Both transistors remain in the saturation region  
+
+• Both transistors remain in the saturation region 
+
 • The amplifier operates in a linear manner  
 
 ## situation 2: Non-Linear Region
@@ -410,8 +434,11 @@ input applied ; V_id = 490m V
 Observation:
 
 • The output waveform is no longer clean and shows distortion  
+
 • Signal clipping can be clearly seen  
+
 • One transistor turns OFF (enters cutoff region)  
+
 • The amplifier deviates from linear operation  
 
 ## Comparison Table
@@ -447,9 +474,11 @@ loses its linear behavior.
 ## Midband gain:
 
 From AC simulation:
+
 A_v = 18.486 dB
 
 The -3 dB gain is:
+
 A_v - 3 = 18.486 - 3
 
 A_v - 3 = 15.486 dB
@@ -458,24 +487,33 @@ A_v - 3 = 15.486 dB
 Cutoff Frequencies
 
 Lower cutoff frequency:
+
 f_L = 0
 
 Upper cutoff frequency:
+
 f_H = 2.249 GHz
 
 Simulated Gain
 
 Input signal parameters:
-* Type: Sine wave  
-* Frequency = 1 kHz  
-* Amplitude = 5 mV (applied differentially)  
+
+* Type: Sine wave
+ 
+* Frequency = 1 kHz
+  
+* Amplitude = 5 mV (applied differentially)
+  
 * DC Offset = 0 V  
 
 Measured peak-to-peak values:
-V_in(p-p) = 5 mV − (−5 mV) = 10 mV  
+
+V_in(p-p) = 5 mV − (−5 mV) = 10 mV
+
 V_out(p-p) = 42.503 mV − (−83.825 mV) = 126.328 mV  
 
 Voltage gain:
+
 A_v = V_out(p-p) / V_in(p-p)  
 
 A_v = (126.328 × 10^-3) / (10 × 10^-3)  
@@ -486,6 +524,7 @@ A_v = 12.632 v/v
 Bandwidth
 
 Bandwidth is defined as:
+
 BW = f_H - f_L
 
 BW = 2.249GHz - 0
@@ -497,6 +536,7 @@ BW = 2.249GHz
 Since the 0 dB crossing point is not clearly observed in the plot, the UGB cannot be measured directly.
 
 However, it can be estimated using:
+
 UGB = A_v × BW
 
 A_v = 12.632
@@ -510,28 +550,37 @@ UGB = 28.409 GHz
 ## Result
 
 • Input Common Mode Range (ICMR):
+
   -0.34 V ≤ V_ICM ≤ 0.36 V
 
 • Output Common Mode Range (OCMR):
+
   -0.36 V ≤ V_OCM ≤ 0.9 V
 
 • Differential Input Linear Range:
+
   -0.68 V ≤ V_id ≤ 0.68 V
 
 • Simulated Voltage Gain:
+
   A_v ≈ 12.632 V/V
 
 • Gain in dB (AC Analysis):
+
   A_v ≈ 18.486 dB
 
 • Bandwidth:
+
   BW ≈ 2.249 GHz
 
 • Unity Gain Bandwidth (UGB):
+
   UGB ≈ 28.409 GHz
 
 • Nature of Operation:
-  - Linear for small input signals  
+
+  - Linear for small input signals
+    
   - Non-linear (distorted) for large input signals
 
 
@@ -566,15 +615,24 @@ To design and simulate three MOSFET differential amplifier configurations using 
 
 GIVEN PARAMETERS
 
-• Technology: TSMC 180 nm  
-• Supply voltage, V_DD = +0.9 V  
-• Negative supply, V_SS = −0.9 V  
+• Technology: TSMC 180 nm
+
+• Supply voltage, V_DD = +0.9 V 
+
+• Negative supply, V_SS = −0.9 V
+
 • Power constraint, P ≤ 2.2 mW  
-• Channel length, L_n = 540 nm  
+
+• Channel length, L_n = 540 nm
+
 • Input common-mode voltage, V_in,CM = 0 V  
+
 • Output common-mode voltage, V_o,CM = 0 V  
+
 • Tail node voltage, V_p = −0.7 V  
-• Load capacitance, C_L = 10 pF  
+
+• Load capacitance, C_L = 10 pF
+
 • Threshold voltage, V_T ≈ 0.36 V 
 
 # DC ANALYSIS
@@ -582,11 +640,16 @@ GIVEN PARAMETERS
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20224014.png)
 
 ## Given:
+
 VDD = +0.9 V
+
 VSS = −0.9 V
+
 Total supply voltage = 1.8 V
 
+
 ## Power constraint:
+
 P ≤ 2.2 mW
 
 
@@ -600,7 +663,8 @@ I_SS = 2.2 × 10^-3 / 1.8
 
 I_SS ≈ 1.222 mA
 
-For design:
+For design
+
 I_SS ≈ 1.222 mA 
 
 
@@ -614,15 +678,19 @@ I_D ≈ 0.6 mA
 BIAS CONDITIONS
 
 Input common-mode voltage:
+
 V_G = 0.9 V
 
 Given:
+
 Tail node voltage V_S ≈ 0.9 V − V_GS
 
 Assume:
+
 V_GS ≈ 0.7 V
 
 So,
+
 V_S ≈ 0.2 V
 
 
@@ -647,17 +715,22 @@ Condition satisfied --> transistors operate in saturation
 TRANSISTOR SIZING (USING Ln = 540 nm)
 
 Given:
+
 L = 540 nm = 540 × 10^-9 m
 
 Drain current equation:
+
 I_D = (1/2) μnCox (W/L) (V_OV)^2
 
 
 W = (2 I_D L) / (μnCox (V_OV)^2)
 
 Substituting:
+
 I_D = 0.6 × 10^-3 A
+
 μnCox = 2.365 × 10^-4 A/V^2
+
 V_OV = 0.34 V
 
 W = 23.7 um 
@@ -672,11 +745,15 @@ W ≈ 38.21 um (CMOSP)
 ## INPUT COMMON MODE RANGE 
 
 Minimum:
+
+
 V_ICM(min) = V_S + V_T
+
 V_ICM(min) ≈ 0.2 + 0.36 = 0.56 V
 
 Maximum:
 V_ICM(max) ≈ VDD − V_OV
+
 V_ICM(max) ≈ 1.8 − 0.34 = 1.46 V
 
 
@@ -686,10 +763,13 @@ V_ICM(max) ≈ 1.8 − 0.34 = 1.46 V
 OUTPUT COMMON MODE RANGE (OCMR)
 
 Maximum:
+
 V_OCM(max) = VDD = 1.8 V
 
 Minimum:
+
 V_OCM(min) = V_S + V_OV
+
 V_OCM(min) ≈ 0.2 + 0.34 = 0.54 V
 
 
@@ -709,27 +789,34 @@ DIFFERENTIAL INPUT RANGE
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20224117.png)
 
-Condition for linearity:
+Condition for linearity
+
 |V_id| < √2 V_OV = 0.48 V
 
 
 ## situation 1; Linear Region
 
 Input:
+
 V_id = 50 mV < 0.48 V
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20233240.png)
 
 Observation:
+
 • Output waveform is sinusoidal
+
 • No distortion present
+
 • Both transistors remain in saturation
+
 • Linear amplification observed
 
 
 ## situation 2; Non-linear Region
 
 Input:
+
 V_id > 0.48 V
 
 600mV > 0.48 V
@@ -737,9 +824,13 @@ V_id > 0.48 V
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20233718.png)
 
 Observation:
+
 • Output waveform is distorted
+
 • Clipping is observed
+
 • One transistor enters cutoff
+
 • Linear amplification is lost
 
 # AC ANALYSIS 
@@ -747,29 +838,40 @@ Observation:
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20224448.png)
 
 ## a) Gain:
+
 A_v ≈ 5.53
+
 AvdB = 20log (5.53)
+
 AvdB = 14.854 dB
 
 ## b) Bandwidth:
+
 BW = f_H − f_L
+
+
 fl = 0 
+
 BW = 2.90 GHz - 0
 
 
 ## c) −3 dB Bandwidth:
 
 Gain reduces by 3 dB from midband value
+
  3 dB = 2.90 GHz
  
 ## d) Unity Gain Bandwidth:
+
 UGB = 5.53 × 2.90 G
+
 UGB = 16.037 GHz
 
 
 ## COMPARISON (THEORY vs SIMULATION)
 
 Theoretical gain:
+
 A_v ≈ g_m × R_out
 
 g_m = 2I_D / V_OV ≈ 3.529 mS
@@ -777,45 +879,68 @@ g_m = 2I_D / V_OV ≈ 3.529 mS
 Simulated gain: Higher than theoretical value
 
 Reason:
+
 • Channel length modulation
+
+
 • Mobility degradation
+
 • Parasitic capacitances
+
 • Non-ideal MOSFET effects
 
 
 ## INFERENCE
 
-The MOS differential amplifier is designed to satisfy the given power constraint and operates in the saturation region. 
-The channel length is used in determining transistor dimensions, ensuring proper biasing and current flow.
+INFERENCE
 
-The circuit exhibits linear behavior for small differential inputs and non-linear behavior for larger inputs. 
-AC analysis shows moderate gain and high bandwidth. Differences between theoretical and simulated results arise 
-due to non-ideal device characteristics.
+The MOS differential amplifier with active load was successfully designed and analyzed using DC, transient, and AC simulations. 
+From DC analysis, it is verified that the circuit satisfies the given power constraint and all transistors operate in the 
+saturation region under proper biasing conditions.
+
+The input and output common-mode ranges were obtained, ensuring that the amplifier operates within the required limits. 
+Transient analysis shows that for small differential input signals, the amplifier produces a clean sinusoidal output, 
+indicating linear operation. However, when the input exceeds the linear limit, distortion and clipping occur due to one 
+transistor entering the cutoff region.
+
+AC analysis indicates that the amplifier provides moderate gain with very high bandwidth. The simulated gain is slightly 
+higher than the theoretical value due to non-ideal effects such as channel length modulation, mobility degradation, and 
+parasitic capacitances.
+
+Thus, the experiment confirms that the differential amplifier offers linear amplification only within a limited input range 
+and achieves high-speed performance with wide bandwidth.
 
 
 ## RESULTS
 
 • Tail current:
+
   I_SS ≈ 1.22 mA 
 
 • width :
+
   W ≈ 30.625 um (CMOSN)
 
   W ≈ 38.21 um (CMOSP)  
 
 • ICMR:
+
   0.56 V ≤ V_ICM ≤ 1.46 V
 
 • OCMR:
+
   0.54 V ≤ V_OCM ≤ 1.8 V
 
 • Gain:
+
   ≈ 14.854 dB
 
 • Bandwidth:
+
   BW = 2.90 GHz 
 
 • UGB:
+
   UGB = 16.037 GHz
 
 
