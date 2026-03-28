@@ -377,7 +377,41 @@ Final Linear Range:
 
 # TRANSIENT ANALSIS
 
+Condition for Linearity
+
+|V_id| < √2 V_OV
+
+√2 V_OV = 1.414 × 0.34 = 0.48 V
+
+
+## situation 1 : Linear Region
+
+Input applied:
+V_id = 10 mV < 0.48 V
+
 
 ![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20165531.png)
+
+## Observation:
+
+• The output signal appears sinusoidal in nature  
+• No noticeable distortion is present  
+• Both transistors remain in the saturation region  
+• The amplifier operates in a linear manner  
+
+## situation 2: Non-Linear Region
+
+input applied ; V_id = 490m V
+
+490 m V > 0.48 V
+
+![Image description](https://github.com/shreekar-rt/lic/blob/main/Screenshot%202026-03-28%20171644.png)
+
+Observation:
+
+• The output waveform is no longer clean and shows distortion  
+• Signal clipping can be clearly seen  
+• One transistor turns OFF (enters cutoff region)  
+• The amplifier deviates from linear operation  
 
 
